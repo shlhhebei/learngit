@@ -1,0 +1,27 @@
+初始化一个仓库：git init
+
+添加文件到Git仓库，分两步：
+	第一步：使用命令 git add <file> ,注意：可以反复多次使用，添加多个文件，也可以一次添加多个文件			示例：git add file1
+			 git add file2 file3
+	第二步：使用命令 git commit      注意：最好使用 -m 参数，添加此次提交的解释说明
+
+	注意：提交文件的修改也是通过这两步
+
+查看仓库的当前状态：git status     注意：要经常使用该命令，掌握工作区的状态
+
+查看文件变更的内容：git diff <file>   
+
+查看commit历史记录：git log    注意：想版本回退的时候这个命令很又用，可以看到commit_id,
+		    git log --pretty=oneline  注意:每个commit只显示一行数据 commit_id和提交说明		
+
+版本控制/选择：git reset --hard HEAD^/commit_id
+	 注意：在Git中，HEAD表示当前版本 HEAD^表示上个版本 HEAD^^表示上上个版本，依次类推。
+	       如果回退的太多，可以使用 HEAD~100来表示倒数第100个版本
+	       数数太麻烦？咱不用 HEAD^ ,咱用commit_id,就是git log命令显示出的一大串字符数字
+	       取前几位就可以了，不用都写，只要能代表一个唯一的版本就可以
+
+查看git命令的历史记录：git reflog
+		 注意：显示你以前执行的所有git命令，
+		       当你执行了版本回退后，git log命令无法再显示该版本之后的版本信息，
+			如果你后悔这次回退，可以通过执行该命令查看你执行回退时的git命令
+			并对应相应的commit_id 
