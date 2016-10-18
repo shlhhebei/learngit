@@ -25,3 +25,22 @@
 		       当你执行了版本回退后，git log命令无法再显示该版本之后的版本信息，
 			如果你后悔这次回退，可以通过执行该命令查看你执行回退时的git命令
 			并对应相应的commit_id 
+
+撤销修改：git checkout -- file
+		 注意：--很重要，没有这个就变成了其他命令，该命令只能撤销工作区的修改，就是还未
+			 add的修改
+	  git reset HEAD file : 回退暂存区的修改到工作区，HEAD代表最新版本
+	  git checkout -- file：撤销工作区的修改
+		 注意：当你的修改已经提交到暂存区，就是add了之后，顺序执行这两个命令来撤销修改
+
+文件删除：git rm file    注意：删除本地的文件
+			       如果你是手动删除了本地的文件，可以通过git checkout -- file 命令恢复
+			       如果是通过该命令删除，则需要通过版本回退来找回删除的文件
+
+
+
+关联远程库：git remote add origin git@server-name:path/repo-name.git
+
+关联后推送：git push -u origin master    注意：第一次推送master分支的所有内容
+
+完成前两步后，以后的更新的推送：git push origin master
